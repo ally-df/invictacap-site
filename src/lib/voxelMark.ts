@@ -1,17 +1,17 @@
 /**
- * The Invicta mark: an 8x8 solid gold square with a "V" cut out of it.
+ * The Invicta mark: an 8x8 gold square frame with a bold "V" hanging from its top bar.
  * '#' = gold cell, '.' = empty. Used for the logo (3D + SVG), favicon, OG image.
  */
 export const MARK_SIZE = 8;
 
 export const MARK_BITMAP: readonly string[] = [
   "########",
-  "#.####.#",
-  "#.####.#",
-  "##.##.##",
-  "##.##.##",
-  "###..###",
-  "###..###",
+  "##....##",
+  "##....##",
+  "#.#..#.#",
+  "#.#..#.#",
+  "#..##..#",
+  "#..##..#",
   "########",
 ];
 

@@ -214,3 +214,112 @@ html.lite body {
     linear-gradient(to bottom, var(--border) 1px, transparent 1px);
   background-size: calc(var(--unit) * 2) calc(var(--unit) * 2);
 }
+
+/* UI */
+.col {
+  width: 100%;
+  max-width: var(--col);
+  margin-inline: auto;
+}
+
+/* Body copy: Outfit 300, secondary ink, ~52ch measure */
+.copy {
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 300;
+  color: var(--text-2);
+  max-width: 52ch;
+}
+.copy.primary {
+  color: var(--text);
+  font-size: 16px;
+}
+
+/* Main column clears the fixed nav on desktop */
+.home-main {
+  padding-inline: calc(var(--unit) * 4);
+}
+@media (min-width: 768px) {
+  .home-main {
+    padding-left: 216px;
+    padding-right: 16px;
+  }
+}
+
+/* Foreground twin of .gold-cycle for SVG / text */
+@keyframes goldCycleFg {
+  0% { color: var(--gold); }
+  33% { color: var(--gold-light); }
+  66% { color: var(--gold-pale); }
+  100% { color: var(--gold); }
+}
+.gold-cycle-fg {
+  animation: goldCycleFg 1s steps(1) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .gold-cycle-fg { animation: none; }
+}
+
+/* .btn + .hov: keep the ink dark on hover */
+.btn.hov:hover,
+.btn.hov:focus-visible {
+  color: var(--bg);
+}
+
+/* Fixed vertical nav: off-canvas until browse */
+.nav-panel {
+  transform: translateX(-100%);
+  transition: transform 1s cubic-bezier(0, 0.5, 0.5, 1);
+}
+.nav-panel.in {
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-panel { transition: none; }
+}
+
+/* Enter gate fade */
+.gate {
+  transition: opacity 0.6s ease;
+}
+.gate.leaving {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Partner tile outer frame (double frame) */
+.tile-frame::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--unit) * -1 + 1px);
+  border: 1px solid var(--gold);
+  pointer-events: none;
+}
+
+/* Essay */
+.essay p {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--text);
+  font-weight: 300;
+}
+.essay p + p {
+  margin-top: calc(var(--unit) * 3);
+}
+.essay .drop::first-letter {
+  font-family: var(--font-pixel);
+  font-size: 3.4em;
+  line-height: 0.8;
+  float: left;
+  color: var(--gold);
+  padding-top: 0.12em;
+  padding-right: calc(var(--unit) * 1.5);
+}
+.essay .pull {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 26px;
+  line-height: 1.35;
+  color: var(--gold);
+  font-weight: 400;
+}

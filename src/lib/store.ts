@@ -24,6 +24,8 @@ export type SiteState = {
   pointer: { x: number; y: number };
   /** Current DOM scroll position in px (the scene damps toward this). */
   scrollY: number;
+  /** True once the WebGL scene has rendered its first frame (the DOM gate shows a fallback mark until then). */
+  sceneReady: boolean;
 
   enter: () => void;
   finishIntro: () => void;
@@ -35,6 +37,7 @@ export type SiteState = {
   setMenuOpen: (v: boolean) => void;
   setPointer: (x: number, y: number) => void;
   setScrollY: (y: number) => void;
+  setSceneReady: (v: boolean) => void;
 };
 
 export const useSite = create<SiteState>((set, get) => ({
@@ -47,6 +50,7 @@ export const useSite = create<SiteState>((set, get) => ({
   menuOpen: false,
   pointer: { x: 0, y: 0 },
   scrollY: 0,
+  sceneReady: false,
 
   enter: () => {
     if (get().phase !== "gate") return;
@@ -63,6 +67,7 @@ export const useSite = create<SiteState>((set, get) => ({
   setMenuOpen: (menuOpen) => set({ menuOpen }),
   setPointer: (x, y) => set({ pointer: { x, y } }),
   setScrollY: (scrollY) => set({ scrollY }),
+  setSceneReady: (sceneReady) => set({ sceneReady }),
 }));
 
 /** Intro duration in ms (camera pull-back), matching the reference. */
