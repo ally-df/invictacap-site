@@ -1,6 +1,6 @@
 # Pending tasks — invictacap.co rebuild
 
-State as of 2026-09-07: site is complete and committed in `~/dev/website` (3 commits on `main`). `npm run build`, `tsc`, and `lint` all pass. Dev server was running on http://localhost:3210 (`npm run dev -- -p 3210`).
+State as of 2026-09-08: site is complete, on GitHub (public) at https://github.com/ally-df/invictacap-site, and live via GitHub Pages at https://ally-df.github.io/invictacap-site/ (auto-deploys on every push to `main`). `npm run build`, `tsc`, and `lint` all pass. Dev server was running on http://localhost:3210 (`npm run dev -- -p 3210`).
 
 Resume the Claude session with `claude --resume` in `~/dev/website` (session link: https://claude.ai/code/session_01E3FriaTgptymhfdtJou4s5). Plan file: `~/.claude/plans/sprightly-frolicking-turtle.md`.
 
@@ -15,7 +15,7 @@ Headless screenshots can't show motion. Open http://localhost:3210 and check:
 - [ ] Mobile on a real phone (tap the mark to enter; hamburger drawer)
 - [ ] The new square V mark — does it read as Invicta? (`src/lib/voxelMark.ts`, 8x8 bitmap; favicon/OG regenerate from it)
 
-## 2. Deploy to Vercel (you + Claude)
+## 2. Production deploy to Vercel (you + Claude) — GitHub Pages is the team preview; invictacap.co should point at Vercel
 - [ ] `npx vercel login` (interactive — run yourself, or `! npx vercel login` inside Claude Code)
 - [ ] `npx vercel link` → new project (e.g. `invictacap-site`)
 - [ ] `npx vercel --prod`
@@ -33,4 +33,3 @@ Headless screenshots can't show motion. Open http://localhost:3210 and check:
 - [ ] Set-pieces disassemble when scrolling back up; make monotonic if it looks flickery
 - [ ] Lighthouse pass on the production build (`npm run build && npm start`)
 - [ ] Add a `not-found.tsx` in the Lite style
-- [ ] `git remote add origin <repo>` and push — no remote is configured yet
