@@ -100,7 +100,7 @@ export const GATE_EYE_Y = MARK_SIZE / 2;
 /** Gate: the standing 8-unit mark is this fraction of the viewport height. */
 export const GATE_MARK_VH = 0.3;
 /** Gate: the DOM's mark slot is centred this many CSS px above the viewport centre. */
-export const GATE_LIFT_PX = 100;
+export const GATE_LIFT_PX = 140;
 /** Visible world height of the gate view (units). */
 export const GATE_VISIBLE_H = MARK_SIZE / GATE_MARK_VH;
 
